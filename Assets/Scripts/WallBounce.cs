@@ -5,13 +5,22 @@ using UnityEngine;
 public class WallBounce : MonoBehaviour
 {
     [SerializeField] Player player;
-    
+    [SerializeField] bool isLeft;
+
     // trigger
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
+        if (other.CompareTag("bubble"))
+        {
+            if (other.GetComponent<Bubble>().bubbleType == BubbleType.Platform)
+                if ((isLeft && player.moveSpeed < 0) || (!isLeft && player.moveSpeed > 0))
+                    player.moveSpeed = -player.moveSpeed;
+        }
+
         if (other.CompareTag("wall"))
-        {   
-            player.moveSpeed = -player.moveSpeed;
+        {
+            if ((isLeft && player.moveSpeed < 0) || (!isLeft && player.moveSpeed > 0))
+                player.moveSpeed = -player.moveSpeed;
         }
     }
 }

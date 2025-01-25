@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     }
 
     // debug
+    [ContextMenu("fk")]
     public void loadLvl2()
     {
         selectLvl(2);

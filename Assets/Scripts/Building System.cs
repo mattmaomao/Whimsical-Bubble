@@ -61,19 +61,22 @@ public class BuildingSystem : MonoBehaviour
             {
                 // snap posisiton to grid
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.x = Mathf.Round(mousePos.x + .5f) - .5f;
-                mousePos.y = Mathf.Round(mousePos.y);
+                mousePos.x = Mathf.Round(mousePos.x) - .5f;
+                mousePos.y = Mathf.Round(mousePos.y) - .5f;
                 mousePos.z = 0;
 
                 // check if the position is valid
                 RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+                Debug.Log("bruh");
                 if (hit.collider != null && hit.collider.CompareTag("bubble"))
                 {
+                    Debug.Log("bruh1");
                     Bubble buuble = hit.collider.GetComponent<Bubble>();
                     currency += buuble.price;
                     currencyText.text = currency.ToString();
                     buuble.destroy();
                 }
+                Debug.Log("bruh2");
             }
         }
         else if (selectingBubble != -1)
