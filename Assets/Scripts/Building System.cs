@@ -13,6 +13,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] int selectingBubble = -1;
     [SerializeField] GameObject cursorBubbleImg;
     [SerializeField] Transform bubbleContainer;
+    [SerializeField] Sprite trashcanSprite;
 
     void Start()
     {
@@ -37,11 +38,16 @@ public class BuildingSystem : MonoBehaviour
 
     void checkPlaceBubble()
     {
+        cursorBubbleImg.transform.position = Input.mousePosition;
+        
         if (Input.mousePosition.y > Screen.height - 120)
             return;
 
         if (selectingBubble == 99)
         {
+            // show bubble on cursor
+            cursorBubbleImg.SetActive(true);
+
             if (Input.GetMouseButtonDown(0))
             {
                 // snap posisiton to grid
@@ -54,9 +60,10 @@ public class BuildingSystem : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
                 if (hit.collider != null && hit.collider.CompareTag("bubble"))
                 {
-                    hit.collider.GetComponent<Bubble>().destroy();
-                    currency += bubbleManager.bubbleData[selectingBubble].price;
+                    Bubble buuble = hit.collider.GetComponent<Bubble>();
+                    currency += buuble.price;
                     currencyText.text = currency.ToString();
+                    buuble.destroy();
                 }
             }
         }
@@ -64,7 +71,6 @@ public class BuildingSystem : MonoBehaviour
         {
             // show bubble on cursor
             cursorBubbleImg.SetActive(true);
-            cursorBubbleImg.transform.position = Input.mousePosition;
 
             // place bubble
             if (Input.GetMouseButtonDown(0))
@@ -110,7 +116,10 @@ public class BuildingSystem : MonoBehaviour
     public void selectBubble(int idx)
     {
         selectingBubble = idx;
-        cursorBubbleImg.GetComponent<Image>().sprite = bubbleManager.bubbleData[idx].sprite;
+        if (idx == 99)
+            cursorBubbleImg.GetComponent<Image>().sprite = trashcanSprite;
+        else
+            cursorBubbleImg.GetComponent<Image>().sprite = bubbleManager.bubbleData[idx].sprite;
         cursorBubbleImg.SetActive(true);
     }
     public void deselectBubble()

@@ -7,6 +7,7 @@ public enum BubbleType { Platform, Boom, Shield, Gravity }
 public class Bubble : MonoBehaviour
 {
     public BubbleType bubbleType;
+    public float price;
     [SerializeField] SpriteRenderer spriteRenderer;
 
     public void init(BubbleType bubbleType)
@@ -27,6 +28,7 @@ public class Bubble : MonoBehaviour
                 spriteRenderer.sprite = BubbleManager.Instance.bubbleData[3].sprite;
                 break;
         }
+        price = BubbleManager.Instance.bubbleData[(int)bubbleType].price;
         gameObject.SetActive(true);
     }
 
