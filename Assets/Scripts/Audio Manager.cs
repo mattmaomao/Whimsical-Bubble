@@ -4,12 +4,48 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSource;
+    public static AudioManager Instance { get; private set; }
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
+
+    [SerializeField] AudioSource audioSource_Music;
+    [SerializeField] AudioSource audioSource_SE;
     [SerializeField] AudioClip mainTitleClip;
+
+    [Header("MUSIC")]
+    public AudioClip TITLE;
+    public AudioClip PLAY;
+    public AudioClip DEATH;
+    public AudioClip INTENSE;
+
+
+    [Header("SE")]
+    public AudioClip BOUNCE;
+    public AudioClip EXPLODE;
+    public AudioClip GRAVITY;
+    public AudioClip SHIELD;
+    public AudioClip SPIKE;
+    public AudioClip ARROW;
+
 
     void Start()
     {
-        audioSource.clip = mainTitleClip;
-        audioSource.Play();
+        audioSource_Music.clip = mainTitleClip;
+        audioSource_Music.Play();
+    }
+
+    public void playMusic(AudioClip clip)
+    {
+        audioSource_Music.clip = clip;
+        audioSource_Music.Play();
+    }
+
+    public void playSE(AudioClip clip)
+    {
+        audioSource_SE.clip = clip;
+        audioSource_SE.Play();
     }
 }

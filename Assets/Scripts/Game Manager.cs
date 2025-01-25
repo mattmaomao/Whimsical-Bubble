@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         // game.SetActive(false);
         // levelselect.SetActive(false);
         // gameoverPanel.SetActive(false);
-
+        AudioManager.Instance.playMusic(AudioManager.Instance.TITLE);
 
     }
 
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     public void gameOver()
     {
         Debug.Log("Game Over");
+        AudioManager.Instance.playMusic(AudioManager.Instance.DEATH);
         player.moving = false;
         gameoverPanel.SetActive(true);
     }

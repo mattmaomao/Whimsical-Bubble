@@ -14,13 +14,19 @@ public class WallBounce : MonoBehaviour
         {
             if (other.GetComponent<Bubble>().bubbleType == BubbleType.Basic)
                 if ((isLeft && player.moveSpeed < 0) || (!isLeft && player.moveSpeed > 0))
+                {
+                    AudioManager.Instance.playSE(AudioManager.Instance.BOUNCE);
                     player.moveSpeed = -player.moveSpeed;
+                }
         }
 
         if (other.CompareTag("wall"))
         {
             if ((isLeft && player.moveSpeed < 0) || (!isLeft && player.moveSpeed > 0))
+            {
+                AudioManager.Instance.playSE(AudioManager.Instance.BOUNCE);
                 player.moveSpeed = -player.moveSpeed;
+            }
         }
     }
 }

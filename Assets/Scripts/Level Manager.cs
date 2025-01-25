@@ -27,5 +27,7 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.player.transform.position = GameManager.Instance.spawnPt.position;
 
         GameManager.Instance.startBtn.gameObject.SetActive(true);
+
+        AudioManager.Instance.playMusic(AudioManager.Instance.PLAY);
     }
 }

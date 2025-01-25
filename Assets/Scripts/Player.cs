@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("spike"))
         {
+            AudioManager.Instance.playSE(AudioManager.Instance.SPIKE);
             if (haveShield)
             {
                 haveShield = false;

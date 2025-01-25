@@ -37,19 +37,23 @@ public class Bubble : MonoBehaviour
         switch (bubbleType)
         {
             case BubbleType.Basic:
+                AudioManager.Instance.playSE(AudioManager.Instance.BOUNCE);
                 break;
             case BubbleType.Boom:
                 GameManager.Instance.player.rb.velocity = new Vector2(GameManager.Instance.player.rb.velocity.x, 0);
                 GameManager.Instance.player.rb.AddForce(Vector2.up * BubbleManager.Instance.boomForce * 
                     GameManager.Instance.player.rb.gravityScale, ForceMode2D.Impulse);
+                AudioManager.Instance.playSE(AudioManager.Instance.EXPLODE);
                 Destroy(gameObject);
                 break;
             case BubbleType.Gravity:
                 GameManager.Instance.player.rb.gravityScale = -GameManager.Instance.player.rb.gravityScale;
+                AudioManager.Instance.playSE(AudioManager.Instance.GRAVITY);
                 Destroy(gameObject);
                 break;
             case BubbleType.Shield:
                 GameManager.Instance.player.getShield();
+                AudioManager.Instance.playSE(AudioManager.Instance.SHIELD);
                 Destroy(gameObject);
                 break;
         }
