@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour
         LevelManager.Instance.loadLvl(idx);
     }
 
+    public void completeLvl() {
+        // todo
+        Debug.Log("Level Complete");
+    }
+
     public void gameOver()
     {
         Debug.Log("Game Over");

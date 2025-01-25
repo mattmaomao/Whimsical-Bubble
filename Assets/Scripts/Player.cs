@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -53,6 +52,24 @@ public class Player : MonoBehaviour
                 return;
             }
             GameManager.Instance.gameOver();
+        }
+
+        // if (other.CompareTag("arrow"))
+        // {
+        //     AudioManager.Instance.playSE(AudioManager.Instance.ARROW);
+        //     if (haveShield)
+        //     {
+        //         haveShield = false;
+        //         // hide shield
+        //         shield.SetActive(false);
+        //         return;
+        //     }
+        //     GameManager.Instance.gameOver();
+        // }
+
+        if (other.CompareTag("end pt"))
+        {
+            GameManager.Instance.completeLvl();
         }
     }
 }

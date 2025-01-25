@@ -269,15 +269,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc44468c87db23468d514cf7ff98e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource_Music: {fileID: 0}
-  audioSource_SE: {fileID: 0}
+  audioSource_Music: {fileID: 390057671}
+  audioSource_SE: {fileID: 410911586}
   mainTitleClip: {fileID: 8300000, guid: 107f98ea646f043cfa3ac218a0e382d1, type: 3}
-  BOUNCE: {fileID: 0}
-  EXPLODE: {fileID: 0}
-  GRAVITY: {fileID: 0}
-  SHIELD: {fileID: 0}
-  SPIKE: {fileID: 0}
-  ARROW: {fileID: 0}
+  TITLE: {fileID: 8300000, guid: 107f98ea646f043cfa3ac218a0e382d1, type: 3}
+  PLAY: {fileID: 8300000, guid: 06e92a8b8b13f46c18a2a2c0046abfe6, type: 3}
+  DEATH: {fileID: 8300000, guid: c896dea1a58d044adbf8d80182280e5b, type: 3}
+  INTENSE: {fileID: 8300000, guid: 217871b0078714a36afda10eda63a749, type: 3}
+  BOUNCE: {fileID: 8300000, guid: e3b836c095d94714b96210f9a97aa4be, type: 3}
+  EXPLODE: {fileID: 8300000, guid: 8790b1448bd7b8642ac3cbe0f9299776, type: 3}
+  GRAVITY: {fileID: 8300000, guid: dfa3d2c6028373943add4324cc0883d3, type: 3}
+  SHIELD: {fileID: 8300000, guid: b7f6cc9382b625b44becb9f7352a2419, type: 3}
+  SPIKE: {fileID: 8300000, guid: addb3a7592c9e824781a03707038812c, type: 3}
+  ARROW: {fileID: 8300000, guid: 5b9e11ba5d32904428634d1d3fc6f659, type: 3}
 --- !u!4 &98932394
 Transform:
   m_ObjectHideFlags: 0
@@ -391,7 +395,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -515,8 +519,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 107f98ea646f043cfa3ac218a0e382d1, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
