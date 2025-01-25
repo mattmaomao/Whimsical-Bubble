@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         mainMenu.SetActive(false);
         game.SetActive(false);
         levelselect.SetActive(false);
+        AudioManager.Instance.playMusic(AudioManager.Instance.WIN);
 
     }
 

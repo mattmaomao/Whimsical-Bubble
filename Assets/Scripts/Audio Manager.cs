@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("MUSIC")]
     public AudioClip TITLE;
+    
     public AudioClip PLAY;
     public AudioClip DEATH;
     public AudioClip INTENSE;
@@ -29,6 +30,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip SHIELD;
     public AudioClip SPIKE;
     public AudioClip ARROW;
+    public AudioClip WIN;
 
 
     void Start()
