@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public bool moving = false;
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public bool haveShield = false;
 
     [SerializeField] GameObject shield;
     GameObject cotactingObj;
+
+    [Header("Animation")]
+    [SerializeField] Animator animator;
+    [SerializeField] bool isFacingLeft = false;
 
     void Start()
     {
@@ -21,6 +24,22 @@ public class Player : MonoBehaviour
     {
         if (GameManager.Instance.gameRunning)
             autoMove();
+        
+        if (rb.velocity.x != 0)
+            animator.SetBool("moving", true);
+        else
+            animator.SetBool("moving", false);
+
+        if (rb.velocity.y != 0)
+            animator.SetBool("jumping", true);
+        else
+            animator.SetBool("jumping", false);
+        
+
+        if (isFacingLeft)
+            transform.localScale = new Vector2(-1, 1);
+        else
+            transform.localScale = new Vector2(1, 1);
     }
 
     void autoMove()
@@ -53,7 +72,7 @@ public class Player : MonoBehaviour
                 AudioManager.Instance.playSE(AudioManager.Instance.ARROW);
             else if (other.CompareTag("spike"))
                 AudioManager.Instance.playSE(AudioManager.Instance.SPIKE);
-                
+
             if (haveShield)
             {
                 Debug.Log("Shield");
@@ -65,13 +84,17 @@ public class Player : MonoBehaviour
             }
             else
             {
+                animator.SetBool("getHit", true);
                 GameManager.Instance.gameOver();
+                animator.SetBool("getHit", false);
             }
         }
 
         if (other.CompareTag("end pt"))
         {
+            animator.SetBool("winning", true);
             GameManager.Instance.completeLvl();
+            animator.SetBool("winning", false);
         }
     }
 
