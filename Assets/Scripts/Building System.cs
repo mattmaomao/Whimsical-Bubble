@@ -42,6 +42,9 @@ public class BuildingSystem : MonoBehaviour
                     // Instantiate bubble
                     GameObject temp = Instantiate(bubbleManager.bubbleData[selectingBubble].prefab, mousePos, Quaternion.identity);
                     temp.transform.SetParent(bubbleContainer);
+                    Bubble bubble = temp.GetComponent<Bubble>();
+                    bubble.init((BubbleType) selectingBubble);
+
 
                     // Update currency
                     currency -= bubbleManager.bubbleData[selectingBubble].price;
@@ -54,6 +57,14 @@ public class BuildingSystem : MonoBehaviour
             {
                 deselectBubble();
             }
+        }
+    }
+
+    public void resetBuilding(float currency = 100) {
+        this.currency = currency;
+        currencyText.text = currency.ToString();
+        foreach (Transform child in bubbleContainer) {
+            Destroy(child.gameObject);
         }
     }
 
