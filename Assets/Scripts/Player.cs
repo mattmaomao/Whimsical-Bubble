@@ -24,17 +24,17 @@ public class Player : MonoBehaviour
     {
         if (GameManager.Instance.gameRunning)
             autoMove();
-        
-        if (rb.velocity.x != 0)
+
+        if (Mathf.Abs(rb.velocity.x) >= 1)
             animator.SetBool("moving", true);
         else
             animator.SetBool("moving", false);
 
-        if (rb.velocity.y != 0)
+        if (Mathf.Abs(rb.velocity.y) >= 1)
             animator.SetBool("jumping", true);
         else
             animator.SetBool("jumping", false);
-        
+
 
         if (isFacingLeft)
             transform.localScale = new Vector2(-1, 1);
@@ -84,18 +84,42 @@ public class Player : MonoBehaviour
             }
             else
             {
+                GameManager.Instance.gameRunning = false;
                 animator.SetBool("getHit", true);
-                GameManager.Instance.gameOver();
-                animator.SetBool("getHit", false);
+                // wait 1 sec
+                StartCoroutine(waitGameOver());
             }
         }
 
         if (other.CompareTag("end pt"))
         {
+            GameManager.Instance.gameRunning = false;
             animator.SetBool("winning", true);
-            GameManager.Instance.completeLvl();
-            animator.SetBool("winning", false);
+            // wait 1 sec
+            StartCoroutine(waitWin());
         }
+    }
+
+    IEnumerator waitGameOver()
+    {
+        stopMovement();
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.gameOver();
+        animator.SetBool("getHit", false);
+    }
+
+    IEnumerator waitWin()
+    {
+        stopMovement();
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.completeLvl();
+        animator.SetBool("winning", false);
+    }
+
+    void stopMovement()
+    {
+        rb.velocity = new Vector2(0, 0);
+        transform.position = new Vector2(transform.position.x, transform.position.y);
     }
 
     void OnTriggerExit2D(Collider2D other)
