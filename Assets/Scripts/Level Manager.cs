@@ -14,6 +14,10 @@ public class LevelManager : MonoBehaviour
     }
 
     [SerializeField] List<GameObject> levels;
+    [SerializeField] GameObject game;   
+    [SerializeField] GameObject winningPanel;
+    [SerializeField] GameObject losepanel;
+    [SerializeField] GameObject levelselect;
 
     public void loadLvl(int idx)
     {
@@ -21,6 +25,10 @@ public class LevelManager : MonoBehaviour
         foreach (GameObject level in levels)
             level.SetActive(false);
         levels[idx].SetActive(true);
+        game.SetActive(true);
+        winningPanel.SetActive(false);
+        losepanel.SetActive(false);
+        levelselect.SetActive(false);
         
         GameManager.Instance.spawnPt = levels[idx].transform.Find("spawn pt");
         GameManager.Instance.gameRunning = false;

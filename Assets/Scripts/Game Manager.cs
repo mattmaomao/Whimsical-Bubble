@@ -24,18 +24,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject game;
     [SerializeField] GameObject gameoverPanel;
     [SerializeField] GameObject levelselect;
-    
+    [SerializeField] GameObject winningPanel;
 
 
 
 
     void Start()
     {
-        // mainMenu.SetActive(true);
-        // game.SetActive(false);
-        // levelselect.SetActive(false);
-        // gameoverPanel.SetActive(false);
-        AudioManager.Instance.playMusic(AudioManager.Instance.TITLE);
+        mainMenu.SetActive(true);
+        game.SetActive(false);
+        levelselect.SetActive(false);
+        gameoverPanel.SetActive(false);
+        winningPanel.SetActive(false);
 
     }
 
@@ -47,6 +47,20 @@ public class GameManager : MonoBehaviour
                 mainMenu.SetActive(false);
                 game.SetActive(false);
                 levelselect.SetActive(true);
+                gameoverPanel.SetActive(false);
+                winningPanel.SetActive(false);
+            }
+
+        if (gameoverPanel.activeSelf)
+            if (Input.GetKey(KeyCode.Return))
+            {
+                gameoverPanel.SetActive(false);
+                mainMenu.SetActive(false);
+                game.SetActive(true);
+                //reset lvl using building system's funciton
+                BuildingSystem.Instance.resetBuilding();
+                levelselect.SetActive(false);
+                winningPanel.SetActive(false);
             }
     }
     public void selectLvl(int idx)
@@ -66,6 +80,11 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.playMusic(AudioManager.Instance.DEATH);
         gameRunning = false;
         gameoverPanel.SetActive(true);
+        winningPanel.SetActive(false);
+        mainMenu.SetActive(false);
+        game.SetActive(false);
+        levelselect.SetActive(false);
+
     }
 
     public void startlvl()

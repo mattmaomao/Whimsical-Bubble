@@ -20,6 +20,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] int selectingBubble = -1;
     [SerializeField] GameObject cursorBubbleImg;
+    [SerializeField] GameObject game;
     [SerializeField] Transform bubbleContainer;
     [SerializeField] Sprite trashcanSprite;
 
@@ -39,6 +40,7 @@ public class BuildingSystem : MonoBehaviour
     {
         this.currency = currency;
         currencyText.text = currency.ToString();
+        game.SetActive(true);
         foreach (Transform child in bubbleContainer)
         {
             Destroy(child.gameObject);
