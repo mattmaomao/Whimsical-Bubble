@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
     public void startMovement()
     {
         rb.gravityScale = 1;
-        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(Mathf.Abs(moveSpeed), rb.velocity.y);
     }
 
     void stopMovement()
