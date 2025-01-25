@@ -449,6 +449,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1878134984}
     m_Modifications:
+    - target: {fileID: 1723423377318961245, guid: 570570c9a4eff4bf4875da8afd27bb32, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2429096271883907701, guid: 570570c9a4eff4bf4875da8afd27bb32, type: 3}
       propertyPath: m_Name
       value: Congrat screen
@@ -1483,6 +1487,10 @@ PrefabInstance:
     - target: {fileID: 8391861213056008888, guid: 10eaa65e052bb4a75b154db47959e035, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728987185661273018, guid: 10eaa65e052bb4a75b154db47959e035, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
