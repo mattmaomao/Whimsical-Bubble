@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
 
     public void loadLvl(int idx)
     {
+        GameManager.Instance.currentLvl = idx;
         Debug.Log("Load Level");
         foreach (GameObject level in levels)
             level.SetActive(false);
