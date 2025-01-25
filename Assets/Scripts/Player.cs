@@ -116,8 +116,14 @@ public class Player : MonoBehaviour
         animator.SetBool("winning", false);
     }
 
+    public void startMovement()
+    {
+        rb.gravityScale = 1;
+    }
+
     void stopMovement()
     {
+        rb.gravityScale = 0;
         rb.velocity = new Vector2(0, 0);
         transform.position = new Vector2(transform.position.x, transform.position.y);
     }

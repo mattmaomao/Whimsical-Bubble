@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Start Level");
         gameRunning = true;
+        player.startMovement();
         startBtn.gameObject.SetActive(false);
         BuildingSystem.Instance.deselectBubble();
     }
