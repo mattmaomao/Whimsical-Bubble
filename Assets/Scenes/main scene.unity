@@ -2907,6 +2907,7 @@ MonoBehaviour:
   player: {fileID: 2129396457}
   startBtn: {fileID: 2049505203}
   gameRunning: 0
+  i: 0
   mainMenu: {fileID: 1352643679}
   game: {fileID: 768041758}
   gameoverPanel: {fileID: 552119160}
