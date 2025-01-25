@@ -95,7 +95,7 @@ public class BuildingSystem : MonoBehaviour
 
                     // check if the position is valid
                     RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-                    if (hit.collider != null && (hit.collider.CompareTag("bubble") || hit.collider.CompareTag("wall")) || hit.collider.CompareTag("spike"))
+                    if (hit.collider != null && ((hit.collider.CompareTag("bubble") || hit.collider.CompareTag("wall")) || hit.collider.CompareTag("spike")))
                     {
                         Debug.Log("Cannot place object here. 'bubble' or 'wall' object present.");
                     }
