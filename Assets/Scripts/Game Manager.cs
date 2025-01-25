@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
                 
                 gameoverPanel.SetActive(false);
                 
-                AudioManager.Instance.Stop();
+                
                 mainMenu.SetActive(false);
                 game.SetActive(false);
                 //reset lvl using building system's funciton
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             if (winningPanel.activeSelf)
             if (Input.GetKey(KeyCode.Return))
             {
-                AudioManager.Instance.Stop();
+                
                 gameoverPanel.SetActive(false);
                 mainMenu.SetActive(false);
                 game.SetActive(false);
@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
                 if (AudioManager.Instance.returnMusicClip() != AudioManager.Instance.TITLE){
                 AudioManager.Instance.playMusic(AudioManager.Instance.TITLE);
                 }
+              
                 winningPanel.SetActive(false);
             }
     }
