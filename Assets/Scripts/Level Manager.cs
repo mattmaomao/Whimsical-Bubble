@@ -18,6 +18,10 @@ public class LevelManager : MonoBehaviour
     public void loadLvl(int idx)
     {
         Debug.Log("Load Level");
+        foreach (GameObject level in levels)
+            level.SetActive(false);
+        levels[idx].SetActive(true);
+        
         GameManager.Instance.spawnPt = levels[idx].transform.Find("spawn pt");
         GameManager.Instance.player.moving = false;
         GameManager.Instance.player.transform.position = GameManager.Instance.spawnPt.position;

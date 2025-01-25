@@ -22,7 +22,32 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject game;
     [SerializeField] GameObject gameoverPanel;
+    [SerializeField] GameObject levelselect;
+    
 
+
+
+
+    void Start()
+    {
+        mainMenu.SetActive(true);
+        game.SetActive(false);
+        levelselect.SetActive(false);
+        gameoverPanel.SetActive(false);
+
+
+    }
+
+    void Update()
+    {
+        if (mainMenu.activeSelf)
+            if (Input.GetKey(KeyCode.Return))
+            {
+                mainMenu.SetActive(false);
+                game.SetActive(false);
+                levelselect.SetActive(true);
+            }
+    }
     public void selectLvl(int idx)
     {
         currentLvl = idx;
