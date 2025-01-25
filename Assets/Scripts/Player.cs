@@ -31,5 +31,10 @@ public class Player : MonoBehaviour
         {
             other.GetComponent<Bubble>().trigger();
         }
+
+        if(other.CompareTag("spike"))
+        {
+            GameManager.Instance.gameOver();
+        }
     }
 }

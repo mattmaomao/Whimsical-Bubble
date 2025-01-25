@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Button startBtn;
 
+    [Header("Scene")]
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject game;
+    [SerializeField] GameObject gameoverPanel;
+
     public void selectLvl(int idx)
     {
         currentLvl = idx;
@@ -28,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         player.moving = false;
+        gameoverPanel.SetActive(true);
     }
 
     public void startlvl()

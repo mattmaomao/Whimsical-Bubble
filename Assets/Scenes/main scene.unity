@@ -319,6 +319,9 @@ MonoBehaviour:
   spawnPt: {fileID: 0}
   player: {fileID: 2129396457}
   startBtn: {fileID: 2049505203}
+  mainMenu: {fileID: 0}
+  game: {fileID: 0}
+  gameoverPanel: {fileID: 0}
 --- !u!4 &195311019
 Transform:
   m_ObjectHideFlags: 0
