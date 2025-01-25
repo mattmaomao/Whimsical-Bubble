@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
         levels[idx].SetActive(true);
         
         GameManager.Instance.spawnPt = levels[idx].transform.Find("spawn pt");
-        GameManager.Instance.player.moving = false;
+        GameManager.Instance.gameRunning = false;
         GameManager.Instance.player.transform.position = GameManager.Instance.spawnPt.position;
 
         GameManager.Instance.startBtn.gameObject.SetActive(true);

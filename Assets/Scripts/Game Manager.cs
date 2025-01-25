@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Transform spawnPt;
     public Player player;
     public Button startBtn;
+    public bool gameRunning = false;
 
     [Header("Scene")]
     [SerializeField] GameObject mainMenu;
@@ -63,14 +64,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         AudioManager.Instance.playMusic(AudioManager.Instance.DEATH);
-        player.moving = false;
+        gameRunning = false;
         gameoverPanel.SetActive(true);
     }
 
     public void startlvl()
     {
         Debug.Log("Start Level");
-        player.moving = true;
+        gameRunning = true;
         startBtn.gameObject.SetActive(false);
         BuildingSystem.Instance.deselectBubble();
     }

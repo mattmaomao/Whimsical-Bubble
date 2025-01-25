@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (moving)
+        if (GameManager.Instance.gameRunning)
             autoMove();
     }
 

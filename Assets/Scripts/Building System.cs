@@ -31,7 +31,7 @@ public class BuildingSystem : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.Instance.player.moving)
+        if (!GameManager.Instance.gameRunning)
             checkPlaceBubble();
     }
 
@@ -124,7 +124,7 @@ public class BuildingSystem : MonoBehaviour
     #region btns
     public void selectBubble(int idx)
     {
-        if (GameManager.Instance.player.moving)
+        if (GameManager.Instance.gameRunning)
             return;
 
         selectingBubble = idx;
