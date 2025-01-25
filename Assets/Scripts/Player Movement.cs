@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float moveSpeed = 5f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        autoMove();
+    }
+
+    void autoMove()
+    {
+        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
     }
 }
