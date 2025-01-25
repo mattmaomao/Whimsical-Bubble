@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject levelselect;
     [SerializeField] GameObject winningPanel;
 
-
-
+    [Header("Tutorial")]
+    [SerializeField] GameObject tutorialPanel;
 
     void Start()
     {
@@ -37,14 +37,18 @@ public class GameManager : MonoBehaviour
         levelselect.SetActive(false);
         gameoverPanel.SetActive(false);
         winningPanel.SetActive(false);
-
+        PlayerPrefs.SetInt("tutorial", 0);
     }
 
     void Update()
     {
         if (mainMenu.activeSelf)
-            if (Input.GetKey(KeyCode.Return))
+            if (Input.GetKey(KeyCode.Return) || Input.GetMouseButtonDown(0))
             {
+                if (PlayerPrefs.GetInt("tutorial") == 0) {
+                    tutorialPanel.SetActive(true);
+                    PlayerPrefs.SetInt("tutorial", 1);
+                }
                 mainMenu.SetActive(false); 
                 game.SetActive(false);
                 levelselect.SetActive(true);
@@ -56,7 +60,7 @@ public class GameManager : MonoBehaviour
             }
 
         if (gameoverPanel.activeSelf)
-            if (Input.GetKey(KeyCode.Return))
+            if (Input.GetKey(KeyCode.Return) || Input.GetMouseButtonDown(0))
             {   
                 
                 gameoverPanel.SetActive(false);
@@ -131,6 +135,11 @@ public class GameManager : MonoBehaviour
         player.startMovement();
         startBtn.gameObject.SetActive(false);
         BuildingSystem.Instance.deselectBubble();
+    }
+
+    public void closeTutorial()
+    {
+        tutorialPanel.SetActive(false);
     }
 
     // debug

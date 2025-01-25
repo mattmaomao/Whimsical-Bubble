@@ -64,8 +64,6 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("spike") || other.CompareTag("arrow"))
         {
-            Debug.Log(other.gameObject);
-            Debug.Log(other.gameObject == cotactingObj);
             if (other.gameObject == cotactingObj)
                 return;
 
