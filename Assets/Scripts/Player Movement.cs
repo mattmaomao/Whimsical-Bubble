@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     void autoMove()
     {
-        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
     }
 }
