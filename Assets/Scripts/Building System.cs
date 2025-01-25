@@ -61,8 +61,8 @@ public class BuildingSystem : MonoBehaviour
             {
                 // snap posisiton to grid
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.x = Mathf.Round(mousePos.x) - .5f;
-                mousePos.y = Mathf.Round(mousePos.y) - .5f;
+                mousePos.x = Mathf.Round(mousePos.x + .5f) - .5f;
+                mousePos.y = Mathf.Round(mousePos.y + .5f) - .5f;
                 mousePos.z = 0;
 
                 // check if the position is valid
@@ -92,7 +92,7 @@ public class BuildingSystem : MonoBehaviour
                     // snap posisiton to grid
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     mousePos.x = Mathf.Round(mousePos.x + .5f) - .5f;
-                    mousePos.y = Mathf.Round(mousePos.y);
+                    mousePos.y = Mathf.Round(mousePos.y + .5f) - .5f;
                     mousePos.z = 0;
 
                     // check if the position is valid
