@@ -67,16 +67,13 @@ public class BuildingSystem : MonoBehaviour
 
                 // check if the position is valid
                 RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-                Debug.Log("bruh");
                 if (hit.collider != null && hit.collider.CompareTag("bubble"))
                 {
-                    Debug.Log("bruh1");
                     Bubble buuble = hit.collider.GetComponent<Bubble>();
                     currency += buuble.price;
                     currencyText.text = currency.ToString();
                     buuble.destroy();
                 }
-                Debug.Log("bruh2");
             }
         }
         else if (selectingBubble != -1)

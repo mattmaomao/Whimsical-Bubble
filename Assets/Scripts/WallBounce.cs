@@ -12,7 +12,7 @@ public class WallBounce : MonoBehaviour
     {
         if (other.CompareTag("bubble"))
         {
-            if (other.GetComponent<Bubble>().bubbleType == BubbleType.Platform)
+            if (other.GetComponent<Bubble>().bubbleType == BubbleType.Basic)
                 if ((isLeft && player.moveSpeed < 0) || (!isLeft && player.moveSpeed > 0))
                     player.moveSpeed = -player.moveSpeed;
         }

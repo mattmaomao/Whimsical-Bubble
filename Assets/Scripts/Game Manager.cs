@@ -30,10 +30,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        mainMenu.SetActive(true);
-        game.SetActive(false);
-        levelselect.SetActive(false);
-        gameoverPanel.SetActive(false);
+        // mainMenu.SetActive(true);
+        // game.SetActive(false);
+        // levelselect.SetActive(false);
+        // gameoverPanel.SetActive(false);
 
 
     }

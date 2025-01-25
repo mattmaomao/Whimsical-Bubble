@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BubbleType { Platform, Boom, Shield, Gravity }
+public enum BubbleType { Basic, Boom, Gravity, Shield }
 
 public class Bubble : MonoBehaviour
 {
@@ -15,16 +15,16 @@ public class Bubble : MonoBehaviour
         this.bubbleType = bubbleType;
         switch (bubbleType)
         {
-            case BubbleType.Platform:
+            case BubbleType.Basic:
                 spriteRenderer.sprite = BubbleManager.Instance.bubbleData[0].sprite;
                 break;
             case BubbleType.Boom:
                 spriteRenderer.sprite = BubbleManager.Instance.bubbleData[1].sprite;
                 break;
-            case BubbleType.Shield:
+            case BubbleType.Gravity:
                 spriteRenderer.sprite = BubbleManager.Instance.bubbleData[2].sprite;
                 break;
-            case BubbleType.Gravity:
+            case BubbleType.Shield:
                 spriteRenderer.sprite = BubbleManager.Instance.bubbleData[3].sprite;
                 break;
         }
@@ -36,19 +36,22 @@ public class Bubble : MonoBehaviour
     {
         switch (bubbleType)
         {
-            case BubbleType.Platform:
-                Debug.Log("Platform");
+            case BubbleType.Basic:
                 break;
             case BubbleType.Boom:
-                Debug.Log("Boom");
-                break;
-            case BubbleType.Shield:
-                Debug.Log("Shield");
+                GameManager.Instance.player.rb.velocity = new Vector2(GameManager.Instance.player.rb.velocity.x, 0);
+                GameManager.Instance.player.rb.AddForce(Vector2.up * BubbleManager.Instance.boomForce * 
+                    GameManager.Instance.player.rb.gravityScale, ForceMode2D.Impulse);
+                Destroy(gameObject);
                 break;
             case BubbleType.Gravity:
-                Debug.Log("Gravity");
+                GameManager.Instance.player.rb.gravityScale = -GameManager.Instance.player.rb.gravityScale;
+                Destroy(gameObject);
                 break;
-            // GameManager.Instance.player.moving = false;
+            case BubbleType.Shield:
+                GameManager.Instance.player.getShield();
+                Destroy(gameObject);
+                break;
         }
     }
 

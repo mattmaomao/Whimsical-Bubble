@@ -17,6 +17,8 @@ public class BubbleManager : MonoBehaviour
     [SerializeField] public List<BubbleData> bubbleData;
     [SerializeField] public List<GameObject> bubbleBtns;
 
+    [SerializeField] public float boomForce = 5f;
+
     void Start()
     {
         for (int i = 0; i < bubbleData.Count; i++)
