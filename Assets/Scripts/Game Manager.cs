@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Button startBtn;
     public bool gameRunning = false;
+    public int i = 0;
 
     [Header("Scene")]
     [SerializeField] GameObject mainMenu;
@@ -45,21 +46,43 @@ public class GameManager : MonoBehaviour
             if (Input.GetKey(KeyCode.Return))
             {
                 mainMenu.SetActive(false);
+                AudioManager.Instance.Stop();
                 game.SetActive(false);
                 levelselect.SetActive(true);
                 gameoverPanel.SetActive(false);
                 winningPanel.SetActive(false);
+                AudioManager.Instance.playMusic(AudioManager.Instance.TITLE);
             }
 
         if (gameoverPanel.activeSelf)
             if (Input.GetKey(KeyCode.Return))
+            {   
+                
+                gameoverPanel.SetActive(false);
+                AudioManager.Instance.Stop();
+                mainMenu.SetActive(false);
+                game.SetActive(false);
+                //reset lvl using building system's funciton
+               
+                levelselect.SetActive(true);
+                winningPanel.SetActive(false);
+            
+                  AudioManager.Instance.playMusic(AudioManager.Instance.TITLE);
+                   BuildingSystem.Instance.resetBuilding();
+     
+            }
+
+            if (winningPanel.activeSelf)
+            if (Input.GetKey(KeyCode.Return))
             {
+                AudioManager.Instance.Stop();
                 gameoverPanel.SetActive(false);
                 mainMenu.SetActive(false);
-                game.SetActive(true);
+                game.SetActive(false);
                 //reset lvl using building system's funciton
                 BuildingSystem.Instance.resetBuilding();
-                levelselect.SetActive(false);
+                levelselect.SetActive(true);
+                AudioManager.Instance.playMusic(AudioManager.Instance.TITLE);
                 winningPanel.SetActive(false);
             }
     }
@@ -67,11 +90,18 @@ public class GameManager : MonoBehaviour
     {
         currentLvl = idx;
         LevelManager.Instance.loadLvl(idx);
+
     }
 
     public void completeLvl() {
         // todo
         Debug.Log("Level Complete");
+        winningPanel.SetActive(true);
+        gameoverPanel.SetActive(false);
+        mainMenu.SetActive(false);
+        game.SetActive(false);
+        levelselect.SetActive(false);
+
     }
 
     public void gameOver()
@@ -89,6 +119,7 @@ public class GameManager : MonoBehaviour
 
     public void startlvl()
     {
+        AudioManager.Instance.playMusic(AudioManager.Instance.PLAY);
         Debug.Log("Start Level");
         gameRunning = true;
         startBtn.gameObject.SetActive(false);

@@ -40,7 +40,6 @@ public class BuildingSystem : MonoBehaviour
     {
         this.currency = currency;
         currencyText.text = currency.ToString();
-        game.SetActive(true);
         foreach (Transform child in bubbleContainer)
         {
             Destroy(child.gameObject);
