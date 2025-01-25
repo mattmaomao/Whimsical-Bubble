@@ -37,6 +37,11 @@ public class AudioManager : MonoBehaviour
         audioSource_Music.Play();
     }
 
+    public AudioClip returnMusicClip()
+    {
+        return audioSource_Music.clip;
+    }
+
     public void Stop()
     {
         audioSource_Music.Stop();

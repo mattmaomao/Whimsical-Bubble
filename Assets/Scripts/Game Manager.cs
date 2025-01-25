@@ -45,13 +45,14 @@ public class GameManager : MonoBehaviour
         if (mainMenu.activeSelf)
             if (Input.GetKey(KeyCode.Return))
             {
-                mainMenu.SetActive(false);
-                AudioManager.Instance.Stop();
+                mainMenu.SetActive(false); 
                 game.SetActive(false);
                 levelselect.SetActive(true);
                 gameoverPanel.SetActive(false);
                 winningPanel.SetActive(false);
+                if (AudioManager.Instance.returnMusicClip() != AudioManager.Instance.TITLE){
                 AudioManager.Instance.playMusic(AudioManager.Instance.TITLE);
+                }
             }
 
         if (gameoverPanel.activeSelf)
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
             {   
                 
                 gameoverPanel.SetActive(false);
+                
                 AudioManager.Instance.Stop();
                 mainMenu.SetActive(false);
                 game.SetActive(false);
@@ -66,8 +68,9 @@ public class GameManager : MonoBehaviour
                
                 levelselect.SetActive(true);
                 winningPanel.SetActive(false);
-            
+                    if (AudioManager.Instance.returnMusicClip() != AudioManager.Instance.TITLE){
                   AudioManager.Instance.playMusic(AudioManager.Instance.TITLE);
+                    }
                    BuildingSystem.Instance.resetBuilding();
      
             }
@@ -82,7 +85,9 @@ public class GameManager : MonoBehaviour
                 //reset lvl using building system's funciton
                 BuildingSystem.Instance.resetBuilding();
                 levelselect.SetActive(true);
+                if (AudioManager.Instance.returnMusicClip() != AudioManager.Instance.TITLE){
                 AudioManager.Instance.playMusic(AudioManager.Instance.TITLE);
+                }
                 winningPanel.SetActive(false);
             }
     }
