@@ -38,9 +38,9 @@ public class Player : MonoBehaviour
 
 
         if (isFacingLeft)
-            transform.localScale = new Vector2(-1, 1);
+            GetComponent<SpriteRenderer>().flipX = true;
         else
-            transform.localScale = new Vector2(1, 1);
+            GetComponent<SpriteRenderer>().flipX = false;
     }
 
     void autoMove()
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.tag);
-        
+
         if (other.CompareTag("bubble"))
         {
             other.GetComponent<Bubble>().trigger();
