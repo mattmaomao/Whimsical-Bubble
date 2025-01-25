@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class LevelManager : MonoBehaviour
+{
+    public static LevelManager Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
+
+    [SerializeField] List<GameObject> levels;
+
+    public void loadLvl(int idx)
+    {
+        Debug.Log("Load Level");
+        GameManager.Instance.spawnPt = levels[idx].transform.Find("spawn pt");
+        GameManager.Instance.player.moving = false;
+        GameManager.Instance.player.transform.position = GameManager.Instance.spawnPt.position;
+
+        GameManager.Instance.startBtn.gameObject.SetActive(true);
+    }
+}

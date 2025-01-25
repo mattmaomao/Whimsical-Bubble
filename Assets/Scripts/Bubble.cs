@@ -48,6 +48,7 @@ public class Bubble : MonoBehaviour
             case BubbleType.Gravity:
                 Debug.Log("Gravity");
                 break;
+            // GameManager.Instance.player.moving = false;
         }
     }
 

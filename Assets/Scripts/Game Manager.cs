@@ -5,16 +5,23 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] int currentLvl = 0;
-    [SerializeField] Transform spawnPt;
-    [SerializeField] Player player;
-    [SerializeField] Button startBtn;
+    public static GameManager Instance { get; private set; }
 
-    public void loadLvl()
+    void Awake()
     {
-        Debug.Log("Load Level");
-        player.moving = false;
-        startBtn.gameObject.SetActive(true);
+        if (Instance == null)
+            Instance = this;
+    }
+
+    public int currentLvl = 0;
+    public Transform spawnPt;
+    public Player player;
+    public Button startBtn;
+
+    public void selectLvl(int idx)
+    {
+        currentLvl = idx;
+        LevelManager.Instance.loadLvl(idx);
     }
 
     public void gameOver()
@@ -23,9 +30,16 @@ public class GameManager : MonoBehaviour
         player.moving = false;
     }
 
-    public void startlvl() {
+    public void startlvl()
+    {
         Debug.Log("Start Level");
         player.moving = true;
         startBtn.gameObject.SetActive(false);
+    }
+
+    // debug
+    public void loadLvl2()
+    {
+        selectLvl(2);
     }
 }
