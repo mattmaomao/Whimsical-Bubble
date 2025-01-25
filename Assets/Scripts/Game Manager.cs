@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameoverPanel;
     [SerializeField] GameObject levelselect;
     [SerializeField] GameObject winningPanel;
+    [SerializeField] GameObject wingame;
 
     [Header("Tutorial")]
     [SerializeField] GameObject tutorialPanel;
@@ -37,7 +38,8 @@ public class GameManager : MonoBehaviour
         levelselect.SetActive(false);
         gameoverPanel.SetActive(false);
         winningPanel.SetActive(false);
-        // PlayerPrefs.SetInt("tutorial", 0);
+        // PlayerPrefs.SetInt("tu%torial", 0);
+        wingame.SetActive(false);
     }
 
     void Update()
@@ -106,7 +108,22 @@ public class GameManager : MonoBehaviour
     public void completeLvl() {
         // todo
         Debug.Log("Level Complete");
+        AudioManager.Instance.playMusic(AudioManager.Instance.WIN);
         winningPanel.SetActive(true);
+        gameoverPanel.SetActive(false);
+        mainMenu.SetActive(false);
+        game.SetActive(false);
+        levelselect.SetActive(false);
+        AudioManager.Instance.playMusic(AudioManager.Instance.WIN);
+
+    }
+
+    public void completegame() {
+        // todo
+        Debug.Log("Level Complete");
+        AudioManager.Instance.playMusic(AudioManager.Instance.WIN);
+        winningPanel.SetActive(false);
+        wingame.SetActive(true);
         gameoverPanel.SetActive(false);
         mainMenu.SetActive(false);
         game.SetActive(false);

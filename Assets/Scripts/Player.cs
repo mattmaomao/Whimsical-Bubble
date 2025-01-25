@@ -116,6 +116,9 @@ public class Player : MonoBehaviour
     {
         stopMovement();
         yield return new WaitForSeconds(1);
+        if (GameManager.Instance.currentLvl == 8)
+            GameManager.Instance.completegame();
+        else
         GameManager.Instance.completeLvl();
         animator.SetBool("winning", false);
     }
