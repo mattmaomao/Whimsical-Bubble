@@ -57,6 +57,8 @@ public class Player : MonoBehaviour
     // trigger
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.tag);
+        
         if (other.CompareTag("bubble"))
         {
             other.GetComponent<Bubble>().trigger();
