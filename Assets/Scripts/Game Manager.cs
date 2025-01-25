@@ -127,6 +127,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.playMusic(AudioManager.Instance.PLAY);
         Debug.Log("Start Level");
         gameRunning = true;
+        player.startMovement();
         startBtn.gameObject.SetActive(false);
         BuildingSystem.Instance.deselectBubble();
     }
