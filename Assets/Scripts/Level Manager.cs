@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.spawnPt = levels[idx].transform.Find("spawn pt");
         GameManager.Instance.gameRunning = false;
         GameManager.Instance.player.transform.position = GameManager.Instance.spawnPt.position;
-
+        GameManager.Instance.player.gameObject.SetActive(true);
         GameManager.Instance.startBtn.gameObject.SetActive(true);
 
         AudioManager.Instance.playMusic(AudioManager.Instance.PLAY);
