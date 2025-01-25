@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
             }
 
             if (winningPanel.activeSelf)
-            if (Input.GetKey(KeyCode.Return))
+            if (Input.GetKey(KeyCode.Return) || Input.GetMouseButtonDown(0))
             {
                 
                 gameoverPanel.SetActive(false);

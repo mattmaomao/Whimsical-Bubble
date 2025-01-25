@@ -36,7 +36,10 @@ public class Player : MonoBehaviour
         else
             animator.SetBool("jumping", false);
 
-
+        if (rb.velocity.x < 0)
+            isFacingLeft = true;
+        else if (rb.velocity.x > 0)
+            isFacingLeft = false;
         if (isFacingLeft)
             GetComponent<SpriteRenderer>().flipX = true;
         else

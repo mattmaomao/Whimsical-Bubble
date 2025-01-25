@@ -16,7 +16,7 @@ public class BuildingSystem : MonoBehaviour
 
     [SerializeField] BubbleManager bubbleManager;
 
-    [SerializeField] float currency = 1000f;
+    [SerializeField] float currency = 20f;
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] int selectingBubble = -1;
     [SerializeField] GameObject cursorBubbleImg;
@@ -28,6 +28,7 @@ public class BuildingSystem : MonoBehaviour
     {
         selectingBubble = -1;
         cursorBubbleImg.SetActive(false);
+        currencyText.text = currency.ToString();
     }
 
     void Update()
@@ -36,7 +37,7 @@ public class BuildingSystem : MonoBehaviour
             checkPlaceBubble();
     }
 
-    public void resetBuilding(float currency = 100)
+    public void resetBuilding(float currency = 20)
     {
         this.currency = currency;
         currencyText.text = currency.ToString();

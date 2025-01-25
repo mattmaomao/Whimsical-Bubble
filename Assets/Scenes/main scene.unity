@@ -3417,7 +3417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3618949344801734959, guid: 9d9675a18cf5d4335ab5f0daea4c4aa7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4511075664084627470, guid: 9d9675a18cf5d4335ab5f0daea4c4aa7, type: 3}
       propertyPath: m_IsActive
@@ -8013,7 +8013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8729162694691474608, guid: 9d9675a18cf5d4335ab5f0daea4c4aa7, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8729162694691474608, guid: 9d9675a18cf5d4335ab5f0daea4c4aa7, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_Collider
@@ -10932,7 +10932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleManager: {fileID: 1821682389}
-  currency: 1000
+  currency: 10
   currencyText: {fileID: 1458626313}
   selectingBubble: -1
   cursorBubbleImg: {fileID: 9111583508092955800}
@@ -11574,15 +11574,15 @@ MonoBehaviour:
     prefab: {fileID: 6824080194108756652, guid: 5a51d33e03ba27641b4f12283644d0e7, type: 3}
   - name: explosive_bubble
     sprite: {fileID: 21300000, guid: 38b4615c178ee174eb6c4a88df6ce61b, type: 3}
-    price: 1
+    price: 2
     prefab: {fileID: 6824080194108756652, guid: 3951c6ad4c4f11247bab979827a35881, type: 3}
   - name: gravity_bubble
     sprite: {fileID: 21300000, guid: 072808f07d928e14bb6003284ec63660, type: 3}
-    price: 1
+    price: 3
     prefab: {fileID: 6824080194108756652, guid: f2f030a4f0681dd4f8dd58a894ffd5c9, type: 3}
   - name: shield_bubble
     sprite: {fileID: 21300000, guid: a3ecd2a6297d8e34e8025b6caf7e19f4, type: 3}
-    price: 1
+    price: 4
     prefab: {fileID: 6824080194108756652, guid: cb10148e1fcce8d4dbfc68d2d96da26b, type: 3}
   bubbleBtns:
   - {fileID: 375526783}
@@ -12529,11 +12529,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3732067074781500008, guid: 38dd68d89e0aece4cb3e991e5ff9adfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.92
+      value: -18.04
       objectReference: {fileID: 0}
     - target: {fileID: 3732067074781500008, guid: 38dd68d89e0aece4cb3e991e5ff9adfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.78
+      value: -7.81
       objectReference: {fileID: 0}
     - target: {fileID: 3732067074781500008, guid: 38dd68d89e0aece4cb3e991e5ff9adfd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12652,6 +12652,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1355955312}
+    - target: {fileID: 3908835288083020204, guid: d50526e8ff643e84bbf95235195deaba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908835288083020204, guid: d50526e8ff643e84bbf95235195deaba, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908835288083020204, guid: d50526e8ff643e84bbf95235195deaba, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908835288083020204, guid: d50526e8ff643e84bbf95235195deaba, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4016631327604151865, guid: d50526e8ff643e84bbf95235195deaba, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
