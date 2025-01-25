@@ -6,14 +6,8 @@ public enum BubbleType { Platform, Boom, Shield, Gravity }
 
 public class Bubble : MonoBehaviour
 {
-    BubbleManager bubbleManager;
     public BubbleType bubbleType;
     [SerializeField] SpriteRenderer spriteRenderer;
-
-    void Start()
-    {
-        bubbleManager = GameObject.Find("BubbleManager").GetComponent<BubbleManager>();
-    }
 
     public void init(BubbleType bubbleType)
     {
@@ -21,16 +15,16 @@ public class Bubble : MonoBehaviour
         switch (bubbleType)
         {
             case BubbleType.Platform:
-                spriteRenderer.sprite = bubbleManager.bubbleData[0].sprite;
+                spriteRenderer.sprite = BubbleManager.Instance.bubbleData[0].sprite;
                 break;
             case BubbleType.Boom:
-                spriteRenderer.sprite = bubbleManager.bubbleData[0].sprite;
+                spriteRenderer.sprite = BubbleManager.Instance.bubbleData[1].sprite;
                 break;
             case BubbleType.Shield:
-                spriteRenderer.sprite = bubbleManager.bubbleData[0].sprite;
+                spriteRenderer.sprite = BubbleManager.Instance.bubbleData[2].sprite;
                 break;
             case BubbleType.Gravity:
-                spriteRenderer.sprite = bubbleManager.bubbleData[0].sprite;
+                spriteRenderer.sprite = BubbleManager.Instance.bubbleData[3].sprite;
                 break;
         }
         gameObject.SetActive(true);

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    [SerializeField] bool moving = false;
+    public bool moving = false;
     [SerializeField] float moveSpeed = 5f;
 
     void Update()
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // trigger
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bubble"))
+        if (other.CompareTag("bubble"))
         {
             other.GetComponent<Bubble>().trigger();
         }

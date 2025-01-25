@@ -6,6 +6,14 @@ using UnityEngine.UI;
 
 public class BubbleManager : MonoBehaviour
 {
+    public static BubbleManager Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
+
     [SerializeField] public List<BubbleData> bubbleData;
     [SerializeField] public List<GameObject> bubbleBtns;
 
