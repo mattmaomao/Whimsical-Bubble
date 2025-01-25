@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5150043963044625736}
   - component: {fileID: 4278559550203388879}
   m_Layer: 0
-  m_Name: placable bubble
+  m_Name: basic bubble
   m_TagString: bubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
