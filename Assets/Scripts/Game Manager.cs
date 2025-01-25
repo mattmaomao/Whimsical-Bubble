@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         levelselect.SetActive(false);
         gameoverPanel.SetActive(false);
         winningPanel.SetActive(false);
-        PlayerPrefs.SetInt("tutorial", 0);
+        // PlayerPrefs.SetInt("tutorial", 0);
     }
 
     void Update()
