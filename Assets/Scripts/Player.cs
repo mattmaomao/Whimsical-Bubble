@@ -42,14 +42,18 @@ public class Player : MonoBehaviour
             other.GetComponent<Bubble>().trigger();
         }
 
-        if (other.CompareTag("spike"))
+        if (other.CompareTag("spike") || other.CompareTag("arrow"))
         {
             Debug.Log(other.gameObject);
             Debug.Log(other.gameObject == cotactingObj);
             if (other.gameObject == cotactingObj)
                 return;
 
-            AudioManager.Instance.playSE(AudioManager.Instance.SPIKE);
+            if (other.CompareTag("arrow"))
+                AudioManager.Instance.playSE(AudioManager.Instance.ARROW);
+            else if (other.CompareTag("spike"))
+                AudioManager.Instance.playSE(AudioManager.Instance.SPIKE);
+                
             if (haveShield)
             {
                 Debug.Log("Shield");
@@ -64,19 +68,6 @@ public class Player : MonoBehaviour
                 GameManager.Instance.gameOver();
             }
         }
-
-        // if (other.CompareTag("arrow"))
-        // {
-        //     AudioManager.Instance.playSE(AudioManager.Instance.ARROW);
-        //     if (haveShield)
-        //     {
-        //         haveShield = false;
-        //         // hide shield
-        //         shield.SetActive(false);
-        //         return;
-        //     }
-        //     GameManager.Instance.gameOver();
-        // }
 
         if (other.CompareTag("end pt"))
         {

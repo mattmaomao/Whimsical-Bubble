@@ -8,6 +8,7 @@ TagManager:
   - bubble
   - spike
   - end pt
+  - arrow
   layers:
   - Default
   - TransparentFX

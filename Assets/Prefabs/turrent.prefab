@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18036feccbbe5140be6e36b4c138092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.5
+  shootInterval: 1
   arrowPrefab: {fileID: 4788207589014831349, guid: c895b6f0582824947b88b08c80095daf, type: 3}
   shootingDirection: {x: 1, y: 0}
