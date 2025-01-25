@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public bool haveShield = false;
 
     [SerializeField] GameObject shield;
+    GameObject cotactingObj;
 
     void Start()
     {
@@ -43,15 +44,25 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("spike"))
         {
+            Debug.Log(other.gameObject);
+            Debug.Log(other.gameObject == cotactingObj);
+            if (other.gameObject == cotactingObj)
+                return;
+
             AudioManager.Instance.playSE(AudioManager.Instance.SPIKE);
             if (haveShield)
             {
+                Debug.Log("Shield");
+                cotactingObj = other.gameObject;
                 haveShield = false;
                 // hide shield
                 shield.SetActive(false);
                 return;
             }
-            GameManager.Instance.gameOver();
+            else
+            {
+                GameManager.Instance.gameOver();
+            }
         }
 
         // if (other.CompareTag("arrow"))
@@ -70,6 +81,14 @@ public class Player : MonoBehaviour
         if (other.CompareTag("end pt"))
         {
             GameManager.Instance.completeLvl();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("spike") && other.gameObject == cotactingObj)
+        {
+            cotactingObj = null;
         }
     }
 }
