@@ -6,6 +6,14 @@ using UnityEngine.UI;
 
 public class BuildingSystem : MonoBehaviour
 {
+    public static BuildingSystem Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
+
     [SerializeField] BubbleManager bubbleManager;
 
     [SerializeField] float currency = 1000f;
@@ -23,7 +31,8 @@ public class BuildingSystem : MonoBehaviour
 
     void Update()
     {
-        checkPlaceBubble();
+        if (!GameManager.Instance.player.moving)
+            checkPlaceBubble();
     }
 
     public void resetBuilding(float currency = 100)
@@ -39,7 +48,7 @@ public class BuildingSystem : MonoBehaviour
     void checkPlaceBubble()
     {
         cursorBubbleImg.transform.position = Input.mousePosition;
-        
+
         if (Input.mousePosition.y > Screen.height - 120)
             return;
 
@@ -115,6 +124,9 @@ public class BuildingSystem : MonoBehaviour
     #region btns
     public void selectBubble(int idx)
     {
+        if (GameManager.Instance.player.moving)
+            return;
+
         selectingBubble = idx;
         if (idx == 99)
             cursorBubbleImg.GetComponent<Image>().sprite = trashcanSprite;

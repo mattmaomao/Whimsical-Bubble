@@ -5,8 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public bool moving = false;
-    [SerializeField] float moveSpeed = 5f;
+    public float moveSpeed = 5f;
+    public Rigidbody2D rb;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+    
     void Update()
     {
         if (moving)
@@ -15,7 +21,6 @@ public class Player : MonoBehaviour
 
     void autoMove()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
     }
 
